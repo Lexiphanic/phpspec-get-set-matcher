@@ -1,0 +1,27 @@
+{
+    "name": "lexiphanic/phpspec-get-set-matcher",
+    "description": "PHPSpec extension to test getters and setters.",
+    "type": "phpspec-extension",
+    "homepage": "https://github.com/lexiphanic/phpspec-get-test-matcher",
+    "authors": [
+        {
+            "name": "Paul Hutchinson",
+            "email": "Paul@lexiphanic.co.uk"
+        }
+    ],
+    "keywords": [
+        "phpspec",
+        "matchers",
+        "tdd"
+    ],
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=7.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "Lexiphanic\\PhpSpecGetSetMatcher\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
