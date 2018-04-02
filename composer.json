@@ -14,7 +14,7 @@
         "matchers",
         "tdd"
     ],
-    "license": "Apache-2.0",
+    "license": "MIT",
     "require": {
         "php": ">=7.0"
     },
