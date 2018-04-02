@@ -19,7 +19,7 @@ class GetSetMatcher implements Matcher
     public function supports(string $name, $subject, array $arguments) : bool
     {
         return in_array($name, ['getSet', 'fluentlyGetSet'], true)
-            && in_array(count($arguments), [1, 2], true);
+            && in_array(count($arguments), [2, 3], true);
     }
 
     /**
@@ -49,7 +49,7 @@ class GetSetMatcher implements Matcher
             }
         }
 
-        $result = $subject->$setter($value);
+        $result = $subject->$setter($arguments[1]);
         if ($name === 'fluentlyGetSet' && $result !== $subject) {
             throw new FailureException(
                 sprintf(
@@ -60,7 +60,7 @@ class GetSetMatcher implements Matcher
         }
 
         $result = $subject->$getter();
-        if ($result !== $value) {
+        if ($result !== $arguments[1]) {
             throw new FailureException(
                 sprintf(
                     'the getter for "%s" should return "%s" but got "%s"',
