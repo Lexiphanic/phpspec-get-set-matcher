@@ -36,7 +36,7 @@ class GetSetMatcher implements Matcher
         $getter = 'get'.ucfirst($arguments[0]);
         $setter = 'set'.ucfirst($arguments[0]);
         if (array_key_exists(2, $arguments)) {
-            $result = $this->getter();
+            $result = $subject->$getter();
             if ($result !== $arguments[2]) {
                 throw new FailureException(
                     sprintf(
@@ -49,7 +49,7 @@ class GetSetMatcher implements Matcher
             }
         }
 
-        $result = $this->$setter($value);
+        $result = $subject->$setter($value);
         if ($name === 'fluentlyGetSet' && $result !== $subject) {
             throw new FailureException(
                 sprintf(
@@ -59,7 +59,7 @@ class GetSetMatcher implements Matcher
             );
         }
 
-        $result = $this->$getter();
+        $result = $subject->$getter();
         if ($result !== $value) {
             throw new FailureException(
                 sprintf(
