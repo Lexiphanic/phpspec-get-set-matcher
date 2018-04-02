@@ -92,7 +92,7 @@ class GetSetMatcher implements Matcher
         throw new FailureException(
             sprintf(
                 'the getter and setter for "%s" passed but this was unexpected"',
-                $arguments[0],
+                $arguments[0]
             )
         );
     }
